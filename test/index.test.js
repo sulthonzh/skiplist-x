@@ -284,8 +284,8 @@ test('SkipList - fromJSON static method', () => {
   assert.strictEqual(sl.size, 2);
   assert.strictEqual(sl.get(1), 'one');
   assert.strictEqual(sl.get(2), 'two');
-  // currentLevel can be 0, 1, or 2 due to random level generation
-  assert.ok(sl.currentLevel >= 0 && sl.currentLevel <= 2);
+  // currentLevel depends on random level generation; just verify it's in valid range
+  assert.ok(sl.currentLevel >= 0 && sl.currentLevel <= json.maxLevel);
 });
 
 test('SkipList - toJSON method', () => {
@@ -319,8 +319,8 @@ test('SkipList - debugHeights', () => {
   const heights = sl.debugHeights();
   assert.strictEqual(heights.length, 3);
   assert.strictEqual(heights[0].key, 1);
-  // With p=0.5, nodes can have levels 0, 1, or higher - accept reasonable values
-  assert.ok(heights[0].level >= 0 && heights[0].level <= 2);
+  // With p=0.5, node levels are geometrically distributed — just verify non-negative
+  assert.ok(heights[0].level >= 0);
   assert.ok(heights.every(h => h.level >= 0));
 });
 
