@@ -10,11 +10,26 @@
   "scripts": {
     "test": "node --test test/index.test.js"
   },
-  "keywords": ["skiplist", "skip-list", "data-structure", "probabilistic", "sorted", "indexed"],
+  "keywords": [
+    "skiplist",
+    "skip-list",
+    "data-structure",
+    "probabilistic",
+    "sorted",
+    "indexed"
+  ],
   "license": "MIT",
   "author": "sulthonzh",
   "repository": {
     "type": "git",
     "url": "https://github.com/sulthonzh/skiplist-x"
+  },
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }
